@@ -1,0 +1,120 @@
+import { useState } from "react";
+import { Mail, MessageCircle, MapPin, Send, Github, Linkedin, Instagram, Twitter } from "lucide-react";
+import { toast } from "sonner";
+
+export const Contact = () => {
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      (e.target as HTMLFormElement).reset();
+      toast.success("Message sent! I'll get back to you within 24 hours.");
+    }, 900);
+  };
+
+  return (
+    <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
+      <div className="absolute inset-0 mesh-bg opacity-50" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+
+      <div className="container relative">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-medium uppercase tracking-widest mb-5">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Available for projects
+          </span>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+            Let's build something <span className="text-gradient">unforgettable</span>.
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground">
+            Tell me about your project, brand or idea — I respond within 24 hours.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8">
+          <div className="lg:col-span-2 space-y-4">
+            {[
+              { icon: Mail, label: "Email", value: "daniel.ugorji@email.com", href: "mailto:daniel.ugorji@email.com" },
+              { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/2340000000000" },
+              { icon: MapPin, label: "Based in", value: "Nigeria — working globally", href: "#" },
+            ].map(({ icon: Icon, label, value, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="glow-card glass rounded-2xl p-5 flex items-center gap-4 group"
+              >
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow group-hover:scale-110 transition-transform">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
+                  <div className="font-heading font-semibold truncate">{value}</div>
+                </div>
+              </a>
+            ))}
+
+            <div className="glass rounded-2xl p-5">
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Find me on</div>
+              <div className="flex gap-3">
+                {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="grid h-11 w-11 place-items-center rounded-xl glass hover:bg-gradient-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
+                    aria-label="Social"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={onSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-7 sm:p-9 space-y-5">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <Field label="Your name" name="name" placeholder="Jane Doe" />
+              <Field label="Email" name="email" type="email" placeholder="you@brand.com" />
+            </div>
+            <Field label="Subject" name="subject" placeholder="Project inquiry" />
+            <div>
+              <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                Tell me about your project
+              </label>
+              <textarea
+                required
+                name="message"
+                rows={5}
+                placeholder="A few details about goals, scope and timeline..."
+                className="w-full rounded-2xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.01] transition-all disabled:opacity-70"
+            >
+              {loading ? "Sending..." : (<>Send Message <Send className="h-4 w-4" /></>)}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Field = ({ label, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) => (
+  <div>
+    <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">{label}</label>
+    <input
+      required
+      {...props}
+      className="w-full rounded-2xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+    />
+  </div>
+);
