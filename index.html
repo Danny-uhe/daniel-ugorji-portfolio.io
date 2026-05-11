@@ -76,6 +76,125 @@
       }
     }
     </script>
+
+    <!-- Structured Data: ProfessionalService + Service Catalog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://id-preview--2f961252-7d49-4653-9e83-a52c0e6fcfac.lovable.app/#business",
+      "name": "Daniel Uchechukwu Ugorji — Creative & Web Studio",
+      "image": "https://id-preview--2f961252-7d49-4653-9e83-a52c0e6fcfac.lovable.app/hero-portrait.jpg",
+      "url": "https://id-preview--2f961252-7d49-4653-9e83-a52c0e6fcfac.lovable.app/",
+      "description": "Premium web development, branding, UI/UX design, AWS deployment and graphic design services delivered globally from Nigeria.",
+      "priceRange": "$$",
+      "areaServed": [
+        { "@type": "Country", "name": "Nigeria" },
+        { "@type": "Place", "name": "Worldwide (Remote)" }
+      ],
+      "provider": {
+        "@type": "Person",
+        "name": "Daniel Uchechukwu Ugorji"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Daniel Uchechukwu Ugorji"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NG"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ],
+      "knowsLanguage": ["en"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Website Development",
+            "serviceType": "Web Development",
+            "description": "Custom, responsive websites built with modern stacks — fast, accessible and scalable."
+          }
+        },
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business Branding",
+            "serviceType": "Brand Strategy & Identity",
+            "description": "Identity systems that position your business as premium from the first impression."
+          }
+        },
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "UI / UX Design",
+            "serviceType": "UI/UX Design",
+            "description": "Interfaces that look stunning and convert — designed around real user journeys."
+          }
+        },
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Social Media Setup",
+            "serviceType": "Social Media Branding",
+            "description": "Profile design, templates and growth-ready systems for your social presence."
+          }
+        },
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AWS Deployment",
+            "serviceType": "Cloud Deployment & DevOps",
+            "description": "Production hosting, CI/CD and cloud architecture support on AWS infrastructure."
+          }
+        },
+        {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Graphic Design",
+            "serviceType": "Graphic Design",
+            "description": "Flyers, posters, social creatives and event branding with editorial polish."
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Creative & Tech Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Branding" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI / UX Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Setup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AWS Deployment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Design" } }
+        ]
+      }
+    }
+    </script>
   </head>
 
   <body>
