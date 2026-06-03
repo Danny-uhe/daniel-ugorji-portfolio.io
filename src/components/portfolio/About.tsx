@@ -4,7 +4,7 @@ const highlights = [
   { icon: Code2, label: "Frontend Engineering", desc: "HTML, CSS, JavaScript & monorepos" },
   { icon: Globe, label: "Cloud Deployments", desc: "AWS hosting & MongoDB Atlas" },
   { icon: Palette, label: "Brand & Design", desc: "Visual identity & flyer design" },
-  { icon: Rocket, label: "Web3 Curiosity", desc: "Crypto tools & digital ventures" },
+  { icon: Rocket, label: "Scalable Solutions", desc: "Building systems that grow with your business" },
 ];
 
 export const About = () => (
@@ -41,9 +41,7 @@ export const About = () => (
               that converts.
             </p>
             <p>
-              I'm deeply curious about <span className="text-foreground">crypto / Web3</span> tooling
-              and digital entrepreneurship. Strong communication and clear creative direction are how I
-              turn ambitious ideas into products that ship and brands that stick.
+              I'm deeply curious about <span className="text-foreground">modern web development, UI/UX design, and digital branding systems</span> — and how technology can build scalable online businesses and real-world solutions. Strong communication and clear creative direction are how I turn ambitious ideas into products that ship and brands that stick.
             </p>
           </div>
 

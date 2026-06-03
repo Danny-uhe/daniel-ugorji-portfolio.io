@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const Navbar = () => {
   const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -22,6 +25,89 @@ export const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isActivePage = (href: string) => {
+    if (href.startsWith("/#")) return location.pathname === "/";
+    return location.pathname === href;
+  };
+
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    // If it's a hash link on the home page and we're already home, scroll to section
+    if (href.startsWith("/#") && location.pathname === "/") {
+      const el = document.querySelector(href.replace("/", ""));
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const renderLink = (l: { label: string; href: string }, mobile = false) => {
+    const isPage = !l.href.startsWith("/#");
+    const active = isActivePage(l.href);
+
+    if (isPage) {
+      return (
+        <Link
+          to={l.href}
+          onClick={() => setOpen(false)}
+          className={cn(
+            mobile
+              ? "block rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent transition-colors"
+              : "relative px-4 py-2 text-sm font-medium transition-colors hover:text-foreground group",
+            active && !mobile && "text-foreground",
+            !active && !mobile && "text-muted-foreground"
+          )}
+        >
+          {l.label}
+          {!mobile && (
+            <span
+              className={cn(
+                "absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 bg-gradient-primary transition-all duration-300",
+                active ? "w-6" : "w-0 group-hover:w-6"
+              )}
+            />
+          )}
+        </Link>
+      );
+    }
+
+    // Hash link — use <a> on homepage, <Link> elsewhere
+    if (location.pathname === "/") {
+      return (
+        <a
+          href={l.href.replace("/", "")}
+          onClick={() => handleNavClick(l.href)}
+          className={cn(
+            mobile
+              ? "block rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent transition-colors"
+              : "relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
+          )}
+        >
+          {l.label}
+          {!mobile && (
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-6" />
+          )}
+        </a>
+      );
+    }
+
+    // Hash link from another page — navigate to home + hash
+    return (
+      <Link
+        to={l.href}
+        onClick={() => setOpen(false)}
+        className={cn(
+          mobile
+            ? "block rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent transition-colors"
+            : "relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
+        )}
+      >
+        {l.label}
+        {!mobile && (
+          <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-6" />
+        )}
+      </Link>
+    );
+  };
 
   return (
     <header
@@ -37,24 +123,16 @@ export const Navbar = () => {
             scrolled ? "glass-strong shadow-card" : "bg-transparent"
           )}
         >
-          <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold">
+          <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow">
               D
             </span>
             <span className="hidden sm:inline">Daniel<span className="text-primary">.</span></span>
-          </a>
+          </Link>
 
           <ul className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
-                >
-                  {l.label}
-                  <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 w-0 bg-gradient-primary transition-all duration-300 group-hover:w-6" />
-                </a>
-              </li>
+              <li key={l.href}>{renderLink(l)}</li>
             ))}
           </ul>
 
@@ -66,12 +144,12 @@ export const Navbar = () => {
             >
               {theme === "dark" ? <Sun className="h-4 w-4 text-gold" /> : <Moon className="h-4 w-4 text-primary" />}
             </button>
-            <a
-              href="#contact"
+            <Link
+              to="/#contact"
               className="hidden md:inline-flex items-center rounded-xl bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-105 transition-transform"
             >
               Hire Me
-            </a>
+            </Link>
             <button
               onClick={() => setOpen((s) => !s)}
               className="md:hidden grid h-10 w-10 place-items-center rounded-xl glass"
@@ -86,24 +164,16 @@ export const Navbar = () => {
           <div className="md:hidden mt-2 glass-strong rounded-2xl p-4 animate-fade-in-down">
             <ul className="flex flex-col gap-1">
               {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    onClick={() => setOpen(false)}
-                    href={l.href}
-                    className="block rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent transition-colors"
-                  >
-                    {l.label}
-                  </a>
-                </li>
+                <li key={l.href}>{renderLink(l, true)}</li>
               ))}
               <li>
-                <a
+                <Link
                   onClick={() => setOpen(false)}
-                  href="#contact"
+                  to="/#contact"
                   className="block mt-2 text-center rounded-lg bg-gradient-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
                 >
                   Hire Me
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

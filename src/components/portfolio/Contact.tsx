@@ -40,9 +40,14 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "daniel.ugorji@email.com", href: "mailto:daniel.ugorji@email.com" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/2340000000000" },
-              { icon: MapPin, label: "Based in", value: "Nigeria — working globally", href: "#" },
+              { icon: Mail, label: "Email", value: "danieluchechukwu57@gmail.com", href: "mailto:danieluchechu57@gmail.com" },
+              { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/2349112183658" },
+             {
+  icon: MapPin,
+  label: "Based in",
+  value: "Port Harcourt, Nigeria — working globally",
+  href: "https://maps.google.com/?q=Port+Harcourt,Nigeria",
+}
             ].map(({ icon: Icon, label, value, href }) => (
               <a
                 key={label}
