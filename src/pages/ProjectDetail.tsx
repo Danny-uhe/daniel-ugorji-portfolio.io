@@ -63,7 +63,7 @@ const ProjectDetail = () => {
     .slice(0, 3);
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
 
       {/* ── Hero ── */}
@@ -110,7 +110,7 @@ const ProjectDetail = () => {
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] mb-6">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] mb-6">
                 {project.title}
               </h1>
 

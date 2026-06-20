@@ -42,7 +42,7 @@ export const Testimonials = () => (
           <span className="h-1 w-6 bg-gradient-primary rounded-full" />
           Testimonials
         </span>
-        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+        <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
           Words from <span className="text-gradient">people I've built with</span>.
         </h2>
       </div>

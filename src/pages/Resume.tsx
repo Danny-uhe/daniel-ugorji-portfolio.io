@@ -65,7 +65,7 @@ const Resume = () => {
   }, []);
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
@@ -83,7 +83,7 @@ const Resume = () => {
                 <span className="h-1 w-6 bg-gradient-primary rounded-full" />
                 Resume
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] mb-6">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] mb-6">
                 My <span className="text-gradient">experience</span>.
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
@@ -100,15 +100,15 @@ const Resume = () => {
           </div>
 
           {/* Contact pills */}
-          <div className="flex flex-wrap gap-4 mt-10">
+          <div className="flex flex-wrap gap-3 sm:gap-4 mt-10">
             {[
               { icon: MapPin, text: "Port Harcourt, Nigeria" },
               { icon: Mail, text: "danieluchechukwu57@gmail.com" },
               { icon: Globe, text: "danielugorji.dev" },
             ].map((item) => (
-              <div key={item.text} className="glass rounded-xl px-4 py-3 flex items-center gap-2">
-                <item.icon className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium">{item.text}</span>
+              <div key={item.text} className="glass rounded-xl px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
+                <item.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium break-all">{item.text}</span>
               </div>
             ))}
           </div>
@@ -121,25 +121,25 @@ const Resume = () => {
           <h2 className="font-display text-2xl font-bold mb-10">Experience & Education</h2>
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
+            <div className="absolute left-[7px] sm:left-[17px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
 
             <div className="space-y-8">
               {timeline.map((item, i) => (
-                <div key={i} className="relative pl-14 animate-fade-in" style={{ animationDelay: `${i * 120}ms` }}>
+                <div key={i} className="relative pl-8 sm:pl-14 animate-fade-in" style={{ animationDelay: `${i * 120}ms` }}>
                   {/* Dot */}
-                  <div className={`absolute left-2.5 top-1.5 h-[14px] w-[14px] rounded-full border-2 ${item.type === "work" ? "border-primary bg-primary/30" : "border-gold bg-gold/30"}`} />
+                  <div className={`absolute left-[1px] sm:left-[10px] top-2 sm:top-1.5 h-3 w-3 sm:h-[14px] sm:w-[14px] rounded-full border-2 ${item.type === "work" ? "border-primary bg-primary/30" : "border-gold bg-gold/30"}`} />
 
-                  <div className="glass rounded-2xl p-6 hover:shadow-elegant transition-all duration-500">
-                    <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <span className={`inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full ${item.type === "work" ? "bg-primary/15 text-primary" : "bg-gold/15 text-gold"}`}>
-                        {item.type === "work" ? <Briefcase className="h-3 w-3" /> : <GraduationCap className="h-3 w-3" />}
+                  <div className="glass rounded-2xl p-5 sm:p-6 hover:shadow-elegant transition-all duration-500">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                      <span className={`inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-medium uppercase tracking-wider px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${item.type === "work" ? "bg-primary/15 text-primary" : "bg-gold/15 text-gold"}`}>
+                        {item.type === "work" ? <Briefcase className="h-2.5 w-2.5 sm:h-3 sm:w-3" /> : <GraduationCap className="h-2.5 w-2.5 sm:h-3 sm:w-3" />}
                         {item.type === "work" ? "Work" : "Education"}
                       </span>
-                      <span className="text-xs text-muted-foreground font-mono">{item.period}</span>
+                      <span className="text-[11px] sm:text-xs text-muted-foreground font-mono">{item.period}</span>
                     </div>
-                    <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                    <p className="text-sm text-primary font-medium mb-2">{item.company}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    <h3 className="font-display text-base sm:text-lg font-bold">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-primary font-medium mb-2">{item.company}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}

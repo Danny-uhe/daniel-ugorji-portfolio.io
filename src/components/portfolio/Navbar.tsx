@@ -113,13 +113,13 @@ export const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled ? "py-3" : "py-5"
+        scrolled ? "py-2 sm:py-3" : "py-3 sm:py-5"
       )}
     >
       <div className="container">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500",
+            "flex items-center justify-between rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3 transition-all duration-500",
             scrolled ? "glass-strong shadow-card" : "bg-transparent"
           )}
         >
@@ -161,7 +161,7 @@ export const Navbar = () => {
         </nav>
 
         {open && (
-          <div className="md:hidden mt-2 glass-strong rounded-2xl p-4 animate-fade-in-down">
+          <div className="md:hidden mt-2 glass-strong rounded-2xl p-4 animate-fade-in-down max-h-[calc(100vh-100px)] overflow-y-auto">
             <ul className="flex flex-col gap-1">
               {links.map((l) => (
                 <li key={l.href}>{renderLink(l, true)}</li>

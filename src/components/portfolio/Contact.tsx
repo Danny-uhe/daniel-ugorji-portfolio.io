@@ -16,7 +16,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 mesh-bg opacity-50" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
 
@@ -29,7 +29,7 @@ export const Contact = () => {
             </span>
             Available for projects
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
             Let's build something <span className="text-gradient">unforgettable</span>.
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
@@ -53,14 +53,14 @@ export const Contact = () => {
               <a
                 key={label}
                 href={href}
-                className="glow-card glass rounded-2xl p-5 flex items-center gap-4 group"
+                className="glow-card glass rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow group-hover:scale-110 transition-transform">
-                  <Icon className="h-5 w-5" />
+                <div className="grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow group-hover:scale-110 transition-transform flex-shrink-0">
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
-                  <div className="font-heading font-semibold truncate">{value}</div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
+                  <div className="font-heading font-semibold text-sm sm:text-base break-words">{value}</div>
                 </div>
               </a>
             ))}
@@ -89,7 +89,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-7 sm:p-9 space-y-5">
+          <form onSubmit={onSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-5 sm:p-9 space-y-5">
             <div className="grid sm:grid-cols-2 gap-5">
               <Field label="Your name" name="name" placeholder="Jane Doe" />
               <Field label="Email" name="email" type="email" placeholder="you@brand.com" />

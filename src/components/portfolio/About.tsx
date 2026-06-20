@@ -8,16 +8,16 @@ const highlights = [
 ];
 
 export const About = () => (
-  <section id="about" className="relative py-24 sm:py-32 overflow-hidden">
+  <section id="about" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
     <div className="absolute right-0 top-1/3 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
     <div className="container relative">
-      <div className="grid lg:grid-cols-12 gap-14 items-start">
+      <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-medium uppercase tracking-widest">
             <span className="h-1 w-6 bg-gradient-primary rounded-full" />
             About
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
             Where <span className="text-gradient">code, faith</span> & creative direction meet.
           </h2>
           <p className="text-muted-foreground text-lg">

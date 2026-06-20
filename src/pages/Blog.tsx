@@ -27,7 +27,7 @@ const Blog = () => {
   const rest = blogPosts.filter((p) => !p.featured);
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
@@ -44,7 +44,7 @@ const Blog = () => {
               <span className="h-1 w-6 bg-gradient-primary rounded-full" />
               Blog
             </span>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] mb-6">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] mb-6">
               Thoughts & <span className="text-gradient">insights</span>.
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">

@@ -25,7 +25,7 @@ export const Projects = () => {
             </h2>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-nowrap overflow-x-auto gap-2 pb-3 -mx-4 px-4 scrollbar-none sm:-mx-0 sm:px-0 sm:flex-wrap sm:pb-0 w-full sm:w-auto">
             {cats.map((c) => (
               <button
                 key={c}

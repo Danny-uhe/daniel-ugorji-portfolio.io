@@ -18,7 +18,7 @@ export const Services = () => (
           <span className="h-1 w-6 bg-gradient-primary rounded-full" />
           Services
         </span>
-        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+        <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
           What I can <span className="text-gradient">build</span> for you.
         </h2>
       </div>

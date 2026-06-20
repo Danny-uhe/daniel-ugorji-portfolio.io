@@ -39,7 +39,7 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.4)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.4)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
 
       <div className="container relative">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-medium animate-fade-in-down">
               <span className="relative flex h-2 w-2">
@@ -54,7 +54,7 @@ export const Hero = () => {
               <p className="font-heading text-sm uppercase tracking-[0.3em] text-muted-foreground">
                 Hello, I'm
               </p>
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] text-balance">
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] text-balance">
                 Daniel <br className="hidden sm:block" />
                 <span className="text-gradient">Uchechukwu</span>
                 <br />
@@ -114,7 +114,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative animate-scale-in [animation-delay:300ms]">
+          <div className="lg:col-span-5 relative animate-scale-in [animation-delay:300ms] px-4 sm:px-0">
             <div className="relative mx-auto max-w-md">
               {/* Decorative ring */}
               <div className="absolute -inset-6 rounded-[3rem] bg-gradient-primary opacity-30 blur-2xl animate-blob" />
@@ -134,16 +134,16 @@ export const Hero = () => {
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 glass-strong rounded-2xl px-4 py-3 shadow-card animate-float">
-                <div className="text-2xl font-display font-bold text-gradient">3+</div>
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Years Crafting</div>
+              <div className="absolute -top-4 -right-2 sm:-right-4 glass-strong rounded-2xl px-3 sm:px-4 py-2 sm:py-3 shadow-card animate-float">
+                <div className="text-xl sm:text-2xl font-display font-bold text-gradient">3+</div>
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground">Years Crafting</div>
               </div>
-              <div className="absolute -bottom-4 -left-4 glass-strong rounded-2xl px-4 py-3 shadow-card animate-float [animation-delay:2s]">
-                <div className="text-2xl font-display font-bold text-gradient">50+</div>
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Projects Shipped</div>
+              <div className="absolute -bottom-4 -left-2 sm:-left-4 glass-strong rounded-2xl px-3 sm:px-4 py-2 sm:py-3 shadow-card animate-float [animation-delay:2s]">
+                <div className="text-xl sm:text-2xl font-display font-bold text-gradient">50+</div>
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground">Projects Shipped</div>
               </div>
-              <div className="absolute top-1/2 -left-6 glass-strong rounded-full p-3 shadow-card animate-float [animation-delay:1s]">
-                <Sparkles className="h-4 w-4 text-gold" />
+              <div className="absolute top-1/2 -left-3 sm:-left-6 glass-strong rounded-full p-2.5 sm:p-3 shadow-card animate-float [animation-delay:1s]">
+                <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold" />
               </div>
             </div>
           </div>

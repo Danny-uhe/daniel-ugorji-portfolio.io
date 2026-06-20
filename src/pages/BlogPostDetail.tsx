@@ -54,7 +54,7 @@ const BlogPostDetail = () => {
   };
 
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
 
       {/* Decorative blobs */}
@@ -94,7 +94,7 @@ const BlogPostDetail = () => {
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-balance">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-balance">
               {post.title}
             </h1>
 
@@ -123,7 +123,7 @@ const BlogPostDetail = () => {
           />
 
           {/* About Author Card */}
-          <section className="glass rounded-3xl p-6 sm:p-10 border border-glass-border">
+          <section className="glass rounded-3xl p-5 sm:p-10 border border-glass-border">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
               <div className="h-20 w-20 rounded-2xl overflow-hidden border-2 border-primary/20 flex-shrink-0">
                 <img

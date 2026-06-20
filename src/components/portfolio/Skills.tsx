@@ -22,7 +22,7 @@ export const Skills = () => (
           <span className="h-1 w-6 bg-gradient-primary rounded-full" />
           Skills
         </span>
-        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+        <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
           A toolkit built for <span className="text-gradient">range</span>.
         </h2>
         <p className="mt-5 text-lg text-muted-foreground">
