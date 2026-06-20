@@ -1,19 +1,8 @@
-import { useState } from "react";
 import { Mail, MessageCircle, MapPin, Send, Github, Facebook, Instagram, Twitter, MessageSquare } from "lucide-react";
-import { toast } from "sonner";
+import { useForm, ValidationError } from "@formspree/react";
 
 export const Contact = () => {
-  const [loading, setLoading] = useState(false);
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      (e.target as HTMLFormElement).reset();
-      toast.success("Message sent! I'll get back to you within 24 hours.");
-    }, 900);
-  };
+  const [state, handleSubmit] = useForm("xjgdkqyj");
 
   return (
     <section id="contact" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
@@ -89,32 +78,54 @@ export const Contact = () => {
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-5 sm:p-9 space-y-5">
-            <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Your name" name="name" placeholder="Jane Doe" />
-              <Field label="Email" name="email" type="email" placeholder="you@brand.com" />
+          {state.succeeded ? (
+            <div className="lg:col-span-3 glass-strong rounded-3xl p-7 sm:p-9 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px] animate-scale-in">
+              <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow mb-2 animate-bounce">
+                <Send className="h-6 w-6 animate-pulse" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-gradient font-heading">Message Sent!</h3>
+              <p className="text-muted-foreground text-sm max-w-md">
+                Thank you for reaching out! I have received your message and will get back to you within 24 hours.
+              </p>
             </div>
-            <Field label="Subject" name="subject" placeholder="Project inquiry" />
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
-                Tell me about your project
-              </label>
-              <textarea
-                required
-                name="message"
-                rows={5}
-                placeholder="A few details about goals, scope and timeline..."
-                className="w-full rounded-2xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.01] transition-all disabled:opacity-70"
-            >
-              {loading ? "Sending..." : (<>Send Message <Send className="h-4 w-4" /></>)}
-            </button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-5 sm:p-9 space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <Field label="Your name" name="name" placeholder="Jane Doe" />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} className="text-xs text-red-500 mt-1 block" />
+                </div>
+                <div>
+                  <Field label="Email" name="email" type="email" placeholder="you@brand.com" />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-500 mt-1 block" />
+                </div>
+              </div>
+              <div>
+                <Field label="Subject" name="subject" placeholder="Project inquiry" />
+                <ValidationError prefix="Subject" field="subject" errors={state.errors} className="text-xs text-red-500 mt-1 block" />
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  Tell me about your project
+                </label>
+                <textarea
+                  required
+                  name="message"
+                  rows={5}
+                  placeholder="A few details about goals, scope and timeline..."
+                  className="w-full rounded-2xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
+                />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-500 mt-1 block" />
+              </div>
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-primary px-7 py-4 font-semibold text-primary-foreground shadow-glow hover:shadow-elegant hover:scale-[1.01] transition-all disabled:opacity-70"
+              >
+                {state.submitting ? "Sending..." : (<>Send Message <Send className="h-4 w-4" /></>)}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
