@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MessageCircle, MapPin, Send, Github, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, MessageCircle, MapPin, Send, Github, Facebook, Instagram, Twitter, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 
 export const Contact = () => {
@@ -40,8 +40,9 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "danieluchechukwu57@gmail.com", href: "mailto:danieluchechu57@gmail.com" },
+              { icon: Mail, label: "Email", value: "danieluchechukwu57@gmail.com", href: "mailto:danieluchechukwu57@gmail.com" },
               { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/2349112183658" },
+              { icon: MessageSquare, label: "Discord", value: "dannystech.dev_94225", href: "https://discord.com/" },
              {
   icon: MapPin,
   label: "Based in",
@@ -67,12 +68,19 @@ export const Contact = () => {
             <div className="glass rounded-2xl p-5">
               <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Find me on</div>
               <div className="flex gap-3">
-                {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
+                {[
+                  { icon: Github, href: "https://github.com/Danny-uhe", label: "GitHub" },
+                  { icon: Facebook, href: "https://www.facebook.com/lurdz.milli", label: "Facebook" },
+                  { icon: Twitter, href: "https://x.com/DUchechukw68865", label: "Twitter" },
+                  { icon: Instagram, href: "https://www.instagram.com/dannystechsolutions?utm_source=qr&igsh=MXdqc3JnbTIzMmNkYw==", label: "Instagram" },
+                ].map(({ icon: Icon, href, label }) => (
                   <a
-                    key={i}
-                    href="#"
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="grid h-11 w-11 place-items-center rounded-xl glass hover:bg-gradient-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
-                    aria-label="Social"
+                    aria-label={label}
                   >
                     <Icon className="h-4 w-4" />
                   </a>

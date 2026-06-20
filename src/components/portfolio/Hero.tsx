@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Mail, Github, Linkedin, Instagram, Twitter, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Github, Facebook, Instagram, Twitter, Sparkles } from "lucide-react";
 import portrait from "@/assets/hero-portrait.jpg";
 
 const titles = ["Web Developer", "Creative Designer", "Digital Brand Strategist", "Tech Enthusiast"];
@@ -94,15 +94,17 @@ export const Hero = () => {
               <div className="h-px w-10 bg-border" />
               <div className="flex items-center gap-3">
                 {[
-                  { icon: Github, href: "#" },
-                  { icon: Linkedin, href: "#" },
-                  { icon: Twitter, href: "#" },
-                  { icon: Instagram, href: "#" },
-                ].map(({ icon: Icon, href }, idx) => (
+                  { icon: Github, href: "https://github.com/Danny-uhe", label: "GitHub" },
+                  { icon: Facebook, href: "https://www.facebook.com/lurdz.milli", label: "Facebook" },
+                  { icon: Twitter, href: "https://x.com/DUchechukw68865", label: "Twitter" },
+                  { icon: Instagram, href: "https://www.instagram.com/dannystechsolutions?utm_source=qr&igsh=MXdqc3JnbTIzMmNkYw==", label: "Instagram" },
+                ].map(({ icon: Icon, href, label }) => (
                   <a
-                    key={idx}
+                    key={label}
                     href={href}
-                    aria-label="Social link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
                     className="grid h-10 w-10 place-items-center rounded-xl glass hover:bg-gradient-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
                   >
                     <Icon className="h-4 w-4" />
@@ -133,7 +135,7 @@ export const Hero = () => {
 
               {/* Floating badges */}
               <div className="absolute -top-4 -right-4 glass-strong rounded-2xl px-4 py-3 shadow-card animate-float">
-                <div className="text-2xl font-display font-bold text-gradient">5+</div>
+                <div className="text-2xl font-display font-bold text-gradient">3+</div>
                 <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Years Crafting</div>
               </div>
               <div className="absolute -bottom-4 -left-4 glass-strong rounded-2xl px-4 py-3 shadow-card animate-float [animation-delay:2s]">

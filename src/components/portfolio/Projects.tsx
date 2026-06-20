@@ -5,7 +5,7 @@ import { allProjects } from "@/data/projects";
 import type { Category } from "@/data/projects";
 
 type Cat = "All" | Category;
-const cats: Cat[] = ["All", "Web", "Design", "Cloud", "Brand"];
+const cats: Cat[] = ["All", "Web", "Design", "Cloud"];
 
 export const Projects = () => {
   const [active, setActive] = useState<Cat>("All");

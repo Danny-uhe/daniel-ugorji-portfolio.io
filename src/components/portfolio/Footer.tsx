@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Github, Facebook, Twitter, Instagram } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Footer = () => {
@@ -54,18 +54,25 @@ export const Footer = () => {
           <div>
             <div className="font-heading font-semibold mb-4">Connect</div>
             <div className="flex gap-3 mb-4">
-              {[Github, Linkedin, Twitter, Instagram].map((Icon, i) => (
+              {[
+                { icon: Github, href: "https://github.com/Danny-uhe", label: "GitHub" },
+                { icon: Facebook, href: "https://www.facebook.com/lurdz.milli", label: "Facebook" },
+                { icon: Twitter, href: "https://x.com/DUchechukw68865", label: "Twitter" },
+                { icon: Instagram, href: "https://www.instagram.com/dannystechsolutions?utm_source=qr&igsh=MXdqc3JnbTIzMmNkYw==", label: "Instagram" },
+              ].map(({ icon: Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
-                  aria-label="Social link"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="grid h-10 w-10 place-items-center rounded-xl glass hover:bg-gradient-primary hover:text-primary-foreground transition-all duration-300 hover:-translate-y-1"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
-            <p className="text-sm text-muted-foreground">daniel.ugorji@email.com</p>
+            <p className="text-sm text-muted-foreground">danieluchechukwu57@gmail.com</p>
           </div>
         </div>
 

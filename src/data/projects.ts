@@ -4,9 +4,11 @@ import aws from "@/assets/AWS-HOTED.png";
 import mongo from "@/assets/project-mongo.jpg";
 import landing from "@/assets/Port-harcout-brand.jpeg";
 import social from "@/assets/project-social.jpg";
+import realEstate from "@/assets/project-real-estate.png";
+import altPortfolio from "@/assets/project-alt-portfolio.png";
 
 /* ─── types ─── */
-export type Category = "Web" | "Design" | "Cloud" | "Brand" | "Full Stack";
+export type Category = "Web" | "Design" | "Cloud" | "Full Stack";
 export type Ownership = "personal" | "collaboration";
 
 export interface Project {
@@ -38,12 +40,12 @@ export const allProjects: Project[] = [
     longDescription:
       "A fully responsive, conversion-optimized website built for Glow Beauty Studio — a lash extensions, microblading and tattoo business in Port Harcourt. Features include an integrated WhatsApp booking flow, image gallery with lazy-loading, client testimonial carousel, and service pricing cards.",
     image: beauty,
-    categories: ["Web", "Brand"],
-    tag: "Beauty Brand",
+    categories: ["Web", "Design"],
+    tag: "Web & Design",
     ownership: "collaboration",
     collaborators: ["UI Designer", "Photographer"],
     liveLink: "https://glowbeautystudio.com",
-    repoLink: "https://github.com/username/glow-beauty-studio",
+    repoLink: "https://github.com/Danny-uhe/daniel-ugorji-portfolio.io",
     year: "2026",
     techStack: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
     challenge:
@@ -54,27 +56,26 @@ export const allProjects: Project[] = [
       "Online booking inquiries increased by 60% within the first month. The site's bounce rate stayed under 25% and average session duration exceeded 3 minutes.",
   },
   {
-    slug: "church-event-branding",
-    title: "Church Event Branding",
+    slug: "church-event-flyers",
+    title: "Church Event Flyer Designs",
     description:
-      "Flyer system & event identity for worship gatherings — modern, vibrant, scripture-led.",
+      "Flyer system and event graphics for worship gatherings — modern, vibrant, generated with AI tools.",
     longDescription:
-      "Designed a complete visual identity system for a church's event series — covering flyers, social media graphics, stage backdrops, and programme booklets. The design language blends modern aesthetics with reverent, scripture-inspired typography.",
+      "Designed a series of modern, high-impact event flyers and social graphics for church worship gatherings. Using advanced AI image generation and graphic design tools, the flyers blend high-quality creative concepts with reverent, clean layout presentation.",
     image: church,
-    categories: ["Design", "Brand"],
-    tag: "Visual Identity",
-    ownership: "collaboration",
-    collaborators: ["Media Director", "Content Writer"],
-    liveLink: "https://churcheventbranding.com",
-    repoLink: "https://github.com/username/church-event-branding",
+    categories: ["Design"],
+    tag: "AI Flyer Design",
+    ownership: "personal",
+    liveLink: "https://github.com/Danny-uhe",
+    repoLink: "https://github.com/Danny-uhe",
     year: "2026",
-    techStack: ["Figma", "Adobe Illustrator", "Photoshop", "Canva"],
+    techStack: ["Midjourney", "Canva", "Photoshop", "Figma"],
     challenge:
-      "The church wanted a fresh, modern identity for their events that would resonate with a younger audience while maintaining the reverence expected in worship settings.",
+      "Needed a rapid, cost-effective way to generate custom, high-concept visual assets that resonate emotionally with event themes without spending weeks on manual illustration.",
     solution:
-      "Created a modular design system with interchangeable templates, bold gradients, and expressive typography. Each piece maintained brand consistency while allowing customization per event theme.",
+      "Leveraged AI image generation for bespoke background imagery and blended it with modern typography, branding principles, and layout grids in Photoshop and Figma.",
     outcome:
-      "Event attendance increased 40% after the rebrand. The template system now enables the media team to produce professional-grade graphics in-house within minutes.",
+      "Created professional, print-ready church event flyers with extremely fast turnaround times, demonstrating hybrid creative design and AI integration capabilities.",
   },
   {
     slug: "aws-hosted-frontend",
@@ -88,7 +89,7 @@ export const allProjects: Project[] = [
     tag: "Cloud Deploy",
     ownership: "personal",
     liveLink: "https://thexora.com/",
-    repoLink: "https://github.com/username/aws-hosted-frontend",
+    repoLink: "https://github.com/Danny-uhe/daniel-ugorji-portfolio.io",
     year: "2025",
     techStack: ["AWS S3", "CloudFront", "Route 53", "GitHub Actions", "React"],
     challenge:
@@ -143,27 +144,92 @@ export const allProjects: Project[] = [
       "The page loads in under 2 seconds despite 20+ high-res images. It serves as both a portfolio piece and a tribute to the city.",
   },
   {
-    slug: "social-media-branding",
-    title: "Social Media Branding",
+    slug: "social-media-graphic-designs",
+    title: "Social Media Flyer Designs",
     description:
-      "Complete social presence setup, templates and content systems for growing brands.",
+      "Flyer templates, marketing graphics, and custom visual assets generated with AI tools.",
     longDescription:
-      "Developed a comprehensive social media branding package for multiple clients — including profile setups, story highlight covers, post templates, content calendars, and brand guidelines documents. The system enables non-designers to maintain professional-grade social presence.",
+      "Developed an AI-powered visual asset design kit containing promotional flyers, banner templates, and social graphics. Utilizing AI generation models for high-quality background and focal assets, combined with editorial text layout styles, to create a premium social presence.",
     image: social,
-    categories: ["Brand", "Design"],
-    tag: "Social Kit",
-    ownership: "collaboration",
-    collaborators: ["Social Strategist", "Copywriter"],
-    liveLink: "https://socialmediabranding.com",
-    repoLink: "https://github.com/username/social-media-branding",
+    categories: ["Design"],
+    tag: "AI Flyer Kit",
+    ownership: "personal",
+    liveLink: "https://github.com/Danny-uhe",
+    repoLink: "https://github.com/Danny-uhe",
     year: "2024",
-    techStack: ["Figma", "Canva", "Adobe Photoshop", "Notion"],
+    techStack: ["AI Image Models", "Photoshop", "Canva", "Figma"],
     challenge:
-      "Multiple clients needed consistent, professional social media presence but lacked design skills and couldn't afford dedicated designers for daily content.",
+      "Creating highly customized, atmospheric flyer graphics for promotional campaigns is time-consuming and often requires custom digital art resources.",
     solution:
-      "Created a modular template system in Figma and Canva with pre-built layouts, color-locked brand palettes, and a Notion content calendar. Clients can swap text and images while maintaining brand consistency.",
+      "Co-created graphics with AI art generators, upscale networks, and vector layouts to produce rich, atmospheric marketing cards ready for social publishing.",
     outcome:
-      "Clients reported 3x increase in social engagement. Template system reduced content creation time from hours to minutes per post.",
+      "Produced a complete social graphics kit that elevates digital campaigns with high-concept artwork, showcasing how AI and digital design can work hand-in-hand.",
+  },
+  {
+    slug: "real-estate-company-site",
+    title: "Real Estate Company Site",
+    description:
+      "Modern property search and listing landing page featuring active filter controls.",
+    longDescription:
+      "A clean, responsive real estate landing page featuring a hero search interface for addresses, cities, and ZIP codes. Built to demonstrate layout styling, custom navigation headers, and advanced property search filters.",
+    image: realEstate,
+    categories: ["Web", "Design"],
+    tag: "Real Estate",
+    ownership: "personal",
+    liveLink: "https://real-estate-company-site.vercel.app/",
+    repoLink: "https://github.com/Danny-uhe/Real-Estate-Company.git",
+    year: "2025",
+    techStack: ["React", "Tailwind CSS", "Vite"],
+    challenge:
+      "Implementing a modern, high-contrast property search bar with advanced toggle filters, and maintaining a clean visual balance with background hero imagery.",
+    solution:
+      "Used React components for a modular layout, created a responsive navigation header (Home, Properties, Contacts, Login), and structured a search input field with advanced action triggers.",
+    outcome:
+      "A highly engaging real estate search landing page with a responsive layout that looks professional across all devices.",
+  },
+  {
+    slug: "portfolio-website-design",
+    title: "Alternative Portfolio Design",
+    description:
+      "Minimalist dark-themed developer portfolio concept with high-contrast UI details.",
+    longDescription:
+      "An alternative dark-mode portfolio concept exploring typography-driven headers, quick action buttons ('View Projects', 'Get in Touch'), and a floating social icon deck.",
+    image: altPortfolio,
+    categories: ["Web", "Design"],
+    tag: "UI Concept",
+    ownership: "personal",
+    liveLink: "https://v0-portfolio-website-design-two-liard.vercel.app/",
+    repoLink: "https://github.com/Danny-uhe/daniel-ugorji-portfolio.io",
+    year: "2025",
+    techStack: ["React", "Tailwind CSS", "v0.dev", "Figma"],
+    challenge:
+      "Designing a high-impact developer homepage that guides visitors to key actions ('Hire Me', 'View Projects') immediately while keeping a clean, low-clutter layout.",
+    solution:
+      "Implemented a high-contrast cyan color theme for primary CTA buttons, built a floating footer for social profiles (GitHub, LinkedIn, Twitter), and included a dynamic 'Available for new opportunities' status badge.",
+    outcome:
+      "A sleek developer landing page template highlighting modern minimalist web layouts and fast-loading web structure.",
+  },
+  {
+    slug: "crumbs-co",
+    title: "Crumbs Co. Bakery",
+    description:
+      "Vibrant landing page for a baking restaurant and pastry bakery with a custom menu.",
+    longDescription:
+      "A colorful, modern web presence built for Crumbs Co. — a premium baking restaurant and dessert house. Features custom menus, chef profiles, and interactive reservation card options.",
+    image: beauty,
+    categories: ["Web", "Design"],
+    tag: "Bakery & Cafe",
+    ownership: "personal",
+    liveLink: "https://crumb-co-zeta.vercel.app/",
+    repoLink: "https://github.com/Danny-uhe/-Crumb-Co..git",
+    year: "2025",
+    techStack: ["HTML", "CSS", "JavaScript", "Vite"],
+    challenge:
+      "Creating an appetite-inducing design system that highlights pastries and menus with clean visual hierarchy.",
+    solution:
+      "Crafted a warm, engaging color scheme with rich typography and structured the menu cards using CSS Grid.",
+    outcome:
+      "Launched a fast-loading landing page that elevates local restaurant branding with an interactive menu experience.",
   },
 ];
 
@@ -173,10 +239,10 @@ export const categoryFilters: ("All" | Category)[] = [
   "Web",
   "Design",
   "Cloud",
-  "Brand",
   "Full Stack",
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return allProjects.find((p) => p.slug === slug);
 }
+

@@ -73,7 +73,7 @@ const Resume = () => {
         <div className="absolute inset-0 mesh-bg opacity-40" />
         <div className="absolute top-20 right-1/4 w-72 h-72 rounded-full bg-primary/20 blur-[120px] animate-blob" />
         <div className="container relative">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8 group">
+          <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8 group print:hidden">
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
@@ -90,9 +90,12 @@ const Resume = () => {
                 Web developer, creative designer, and cloud enthusiast — here's a snapshot of my professional journey.
               </p>
             </div>
-            <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-primary-foreground rounded-xl font-semibold shadow-glow hover:scale-105 transition-all duration-300 self-start lg:self-auto">
+            <button 
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-primary-foreground rounded-xl font-semibold shadow-glow hover:scale-105 transition-all duration-300 self-start lg:self-auto print:hidden"
+            >
               <Download className="h-4 w-4" />
-              Download CV
+              Print / Save CV
             </button>
           </div>
 
@@ -100,7 +103,7 @@ const Resume = () => {
           <div className="flex flex-wrap gap-4 mt-10">
             {[
               { icon: MapPin, text: "Port Harcourt, Nigeria" },
-              { icon: Mail, text: "daniel.ugorji@email.com" },
+              { icon: Mail, text: "danieluchechukwu57@gmail.com" },
               { icon: Globe, text: "danielugorji.dev" },
             ].map((item) => (
               <div key={item.text} className="glass rounded-xl px-4 py-3 flex items-center gap-2">
@@ -185,7 +188,7 @@ const Resume = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
+      <section className="py-16 print:hidden">
         <div className="container">
           <div className="glass rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden">
             <div className="absolute inset-0 mesh-bg opacity-30" />
@@ -204,6 +207,38 @@ const Resume = () => {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media print {
+          header, footer, nav, button, .print\\:hidden {
+            display: none !important;
+          }
+          body, main {
+            background: transparent !important;
+            color: black !important;
+          }
+          section {
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+            border: none !important;
+          }
+          .glass {
+            background: transparent !important;
+            border: 1px solid rgba(0, 0, 0, 0.15) !important;
+            box-shadow: none !important;
+            color: black !important;
+          }
+          .text-muted-foreground {
+            color: #374151 !important;
+          }
+          .text-gradient {
+            background: none !important;
+            -webkit-text-fill-color: initial !important;
+            color: black !important;
+            font-weight: bold !important;
+          }
+        }
+      `}</style>
 
       <Footer />
     </main>
